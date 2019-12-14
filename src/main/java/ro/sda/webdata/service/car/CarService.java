@@ -32,4 +32,9 @@ public class CarService {
         carEntity.setModel(carSaveBody.getModel());
         carRepository.save(carEntity);
     }
+
+    @Transactional(readOnly = true)
+    public List<CarEntity> findByModel(String model){
+        return carRepository.findByModel(model);
+    }
 }
